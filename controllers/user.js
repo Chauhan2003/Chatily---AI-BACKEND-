@@ -76,7 +76,9 @@ export const loginUser = async (req, res, next) => {
 
         res.status(200).cookie('geminiToken', token, {
             maxAge: 604800000, // 7 Days
-            httpOnly: true
+            httpOnly: true,
+            secure: true,
+            sameSite: 'None'
         }).json({
             message: `Welcome ${user.username}`,
             user
